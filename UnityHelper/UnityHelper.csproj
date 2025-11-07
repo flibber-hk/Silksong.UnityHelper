@@ -38,22 +38,11 @@
     <None Include="../README.md" Pack="True" PackagePath="README.md" />
     <None Include="../thunderstore/icon.png" Pack="True" PackagePath="icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="Resources\**\*.png" />
-    <None Remove="Resources\**\*.json" />
-    <None Remove="Resources\**\*.xml" />
-    <None Remove="Resources\**\*.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\**\*.png" />
-    <EmbeddedResource Include="Resources\**\*.json" />
-    <EmbeddedResource Include="Resources\**\*.xml" />
-    <EmbeddedResource Include="Resources\**\*.wav" />
-  </ItemGroup>
   <Target Name="CopyAndPackageMod" AfterTargets="PostBuildEvent">
     <ItemGroup>
       <Binaries Include="$(TargetPath)" />
       <Binaries Include="$(TargetDir)/$(TargetName).pdb" />
+      <Binaries Include="$(TargetDir)/$(TargetName).xml" />
     </ItemGroup>
     <PropertyGroup>
       <ThunderstoreDir>$(ProjectDir)/../thunderstore</ThunderstoreDir>
